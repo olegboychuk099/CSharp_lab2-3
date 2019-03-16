@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="Csharp_laba2.Views.OutputView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="500">
+    <Grid Background="White">
+        <TextBlock  FontSize="20" TextAlignment="Center"  Text ="{Binding Output, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        <Button  VerticalAlignment="Bottom" Margin ="0 10 0 10"  MaxWidth ="200" MaxHeight  ="90" Content="Back" FontSize="33" Command ="{Binding BackCommand}"></Button>
+    </Grid>
+</UserControl>
