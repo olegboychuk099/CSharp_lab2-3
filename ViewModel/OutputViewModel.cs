@@ -6,7 +6,6 @@ namespace Csharp_laba2.ViewModel
 {
     internal class OutputViewModel
     {
-        private string _birthday;
         private RelayCommand<object> _backCommand;
         private readonly Person _person = PersonControler.GetPerson;
 
