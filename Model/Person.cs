@@ -11,8 +11,6 @@ namespace Csharp_laba2.Model
         private string _surname;
         private DateTime _birthDay;
         private string _email;
-        private string _sunSign;
-        private bool _isAdult;
         private readonly string[] _chineseSigns  = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig" };
         #endregion
         #region Constructors
@@ -104,49 +102,42 @@ namespace Csharp_laba2.Model
                 return (_birthDay.Day == DateTime.Now.Day && _birthDay.Month == DateTime.Now.Month);
             }
         }
+
         private string SunSign
         {
             get
             {
-                if (_sunSign != null)
-                    return _sunSign;
-                _sunSign = GetHoroscopeSign();
-                return _sunSign;
-            }
-        }
-
-        private string GetHoroscopeSign()
-        {
-            int moth = BirthDay.Month;
-            int day = BirthDay.Day;
-            switch (moth)
-            {
-                case 1:
-                    return day <= 20 ? "Capricorn" : "Aquarius";
-                case 2:
-                    return day <= 19 ? "Aquarius" : "Pisces";
-                case 3:
-                    return day <= 20 ? "Pisces" : "Aries";
-                case 4:
-                    return day <= 20 ? "Aries" : "Taurus";
-                case 5:
-                    return day <= 21 ? "Taurus" : "Gemini";
-                case 6:
-                    return day <= 22 ? "Gemini" : "Cancer";
-                case 7:
-                    return day <= 22 ? "Cancer" : "Leo";
-                case 8:
-                    return day <= 23 ? "Leo" : "Virgo";
-                case 9:
-                    return day <= 23 ? "Virgo" : "Libra";
-                case 10:
-                    return day <= 23 ? "Libra" : "Scorpio";
-                case 11:
-                    return day <= 22 ? "Scorpio" : "Sagittarius";
-                case 12:
-                    return day <= 21 ? "Sagittarius" : "Capricorn";
-                default:
-                    throw new ArgumentException("Inappropriate format of month !");
+                int moth = BirthDay.Month;
+                int day = BirthDay.Day;
+                switch (moth)
+                {
+                    case 1:
+                        return day <= 20 ? "Capricorn" : "Aquarius";
+                    case 2:
+                        return day <= 19 ? "Aquarius" : "Pisces";
+                    case 3:
+                        return day <= 20 ? "Pisces" : "Aries";
+                    case 4:
+                        return day <= 20 ? "Aries" : "Taurus";
+                    case 5:
+                        return day <= 21 ? "Taurus" : "Gemini";
+                    case 6:
+                        return day <= 22 ? "Gemini" : "Cancer";
+                    case 7:
+                        return day <= 22 ? "Cancer" : "Leo";
+                    case 8:
+                        return day <= 23 ? "Leo" : "Virgo";
+                    case 9:
+                        return day <= 23 ? "Virgo" : "Libra";
+                    case 10:
+                        return day <= 23 ? "Libra" : "Scorpio";
+                    case 11:
+                        return day <= 22 ? "Scorpio" : "Sagittarius";
+                    case 12:
+                        return day <= 21 ? "Sagittarius" : "Capricorn";
+                    default:
+                        throw new ArgumentException("Inappropriate format of month !");
+                }
             }
         }
 
