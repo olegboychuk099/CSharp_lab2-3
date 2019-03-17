@@ -6,13 +6,22 @@ namespace Csharp_laba2.ViewModel
 {
     internal class OutputViewModel
     {
+        private string _birthday;
         private RelayCommand<object> _backCommand;
         private readonly Person _person = PersonControler.GetPerson;
+
         public string Output
         {
             get
             {
                 return _person.ToString();
+            }
+        }
+        public string Birthday
+        {
+            get
+            {
+                return _person.IsBirthDay ? "🎈🎁Happy Birthday🎁🎈" : "";
             }
         }
 

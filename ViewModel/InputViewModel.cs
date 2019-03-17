@@ -12,8 +12,6 @@ namespace Csharp_laba2.ViewModel
 {
     internal class InputViewModel : ILoaderOwner
     {
-        
-
         private RelayCommand<object> _proceedCommand;
         private Visibility _loaderVisibility = Visibility.Hidden;
         private bool _isControlEnabled = true;
@@ -94,16 +92,20 @@ namespace Csharp_laba2.ViewModel
                 }
                 return true;
             });
+
             LoaderManager.Instance.HideLoader();
+
             if (!result) return;
+
             NavigationManager.Instance.Navigate(ViewType.Output);
         }
+
+
 
         internal InputViewModel()
         {
             LoaderManager.Instance.Initialize(this);
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

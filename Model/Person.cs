@@ -97,7 +97,7 @@ namespace Csharp_laba2.Model
         
 
 
-        private bool IsBirthDay
+        public bool IsBirthDay
         {
             get
             {
