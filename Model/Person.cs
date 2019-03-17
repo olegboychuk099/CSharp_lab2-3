@@ -188,8 +188,13 @@ namespace Csharp_laba2.Model
         }
         public override string ToString()
         {
-            return $"Name: {Name}\nSurname: {Surname}\nEmail: {Email}\nBirthday: {BirthDay.ToShortDateString()}\n" +
-                   $"Is Adult: {IsAdult}\nIs Birthday: {IsBirthDay}\nChinease Sign: {ChineseSign}\nSun Sign: {SunSign}";
+            return $"Name: {Name}\n" +
+                $"Surname: {Surname}\n" +
+                $"Email: {Email}\n" +
+                $"Date of birth: {BirthDay.ToShortDateString()}\n" +
+                $"Adult: {IsAdult}\n" +
+                $"Sign: {SunSign}\n" +
+                $"Chinese Sign: {ChineseSign}\n";
         }
         #endregion
     }
