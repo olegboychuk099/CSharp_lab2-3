@@ -4,16 +4,16 @@ namespace Csharp_laba2.Tools
 {
     internal class EmailException : Exception
     {
-        public EmailException()
+        private string _message;
+
+        public override string Message
         {
+            get => _message;
         }
 
-        public EmailException(string message) : base(message)
+        public EmailException(string message)
         {
-        }
-
-        public EmailException(string message, Exception inner) : base(message, inner)
-        {
+            _message = message;
         }
     }
 }

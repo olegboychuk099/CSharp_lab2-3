@@ -11,10 +11,9 @@ namespace Csharp_laba2.Model
         private string _surname;
         private DateTime _birthDay;
         private string _email;
-        private string _chineseSign;
         private string _sunSign;
         private bool _isAdult;
-        private static readonly string[] ChineseZodiacSings = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig" };
+        private readonly string[] _chineseSigns  = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig" };
         #endregion
         #region Constructors
         internal Person(string name, string surname, string email, DateTime birthDay)
@@ -89,25 +88,13 @@ namespace Csharp_laba2.Model
         {
             get
             {
-                _isAdult = IsPersonAdult();
-                return _isAdult;
+                var today = DateTime.Today;
+                var a = (today.Year * 100 + today.Month) * 100 + today.Day;
+                var b = (_birthDay.Year * 100 + _birthDay.Month) * 100 + _birthDay.Day;
+                return (a - b) / 10000 >= 18;
             }
         }
-
-        private bool IsPersonAdult()
-        {
-            if (DateTime.Today.Year - BirthDay.Year < 18) return false;
-            else if (DateTime.Today.Year - BirthDay.Year == 18)
-            {
-                if (DateTime.Today.Month < BirthDay.Month) return false;
-                else if (DateTime.Today.Month == BirthDay.Month)
-                {
-                    if (DateTime.Today.Day < BirthDay.Day) return false;
-                }
-
-            }
-            return true;
-        }
+        
 
 
         private bool IsBirthDay
@@ -167,17 +154,11 @@ namespace Csharp_laba2.Model
         {
             get
             {
-                if (_chineseSign != null)
-                    return _chineseSign;
-                _chineseSign = GetChineseSign();
-                return _chineseSign;
+                var date = _birthDay.Year;
+                return _chineseSigns[(date - 4) % 12];
             }
         }
 
-        private string GetChineseSign()
-        {
-            return ChineseZodiacSings[(_birthDay.Year - 4) % 12];
-        }
 
         private bool IsBirthday()
         {
